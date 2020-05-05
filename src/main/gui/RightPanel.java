@@ -25,8 +25,8 @@ public class RightPanel extends JPanel {
         CircleButton button;
 
         int width = 500, height = 400;
-        int[] xs = { width/4, 9*width/16, 5*width/8, 3*width/8, 5*width/8 };
-        int[] ys = { 3*height/8, 9*height/16, 5*height/16, 11*height/16, 11*height/16 };
+        int[] xs = { width/4, 5*width/8, 9*width/16, 3*width/8, 5*width/8 };
+        int[] ys = { 3*height/8, 5*height/16, 9*height/16, 11*height/16, 11*height/16 };
         for (int i = 0; i < xs.length; i++) {
             button = new CircleButton("");
             button.setToolTipText(data[i]);
@@ -39,8 +39,9 @@ public class RightPanel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-        String fileName = "/media/fred/78E842BDE8427A00/Academic/CS/WorkSpace/Java/Intellij/Project/hackathon/chinaMap.png";
-        ImageIcon newIcon = new ImageIcon(fileName);
+        // String fileName = "/media/fred/78E842BDE8427A00/Academic/CS/WorkSpace/Java/Intellij/Project/hackathon/chinaMap.png";
+        String userDirectory = System.getProperty("user.dir");
+        ImageIcon newIcon = new ImageIcon(userDirectory + "/chinaMap.png");
         super.paintComponent(g);
         g.drawImage(newIcon.getImage(), 0, 0, null);
     }

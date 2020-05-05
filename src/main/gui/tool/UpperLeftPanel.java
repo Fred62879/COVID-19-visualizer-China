@@ -29,6 +29,7 @@ public class UpperLeftPanel extends JPanel {
     JComboBox category;
     private Font lableFont = new Font("Roboto", Font.TRUETYPE_FONT, 14);
     EventListenerList listenerList = new EventListenerList();
+    String userDirectory = System.getProperty("user.dir");
 
     public UpperLeftPanel() {
         Dimension size = getPreferredSize();
@@ -49,7 +50,8 @@ public class UpperLeftPanel extends JPanel {
         String[] areaCat = {"Overall","Wuhan","Northeast","Northwest","Southeast","Southwest"};
         date = new JLabel("Date: ");
         area = new JLabel("Area: ");
-        meme = new JButton(new ImageIcon("/Users/apple/IdeaProjects/hackathon/corona.png"));
+        String fn = userDirectory + "/corona.png";
+        meme = new JButton(new ImageIcon(fn));
         cateField = new JLabel("Category: ");
         dateField = new JTextField(10);
         areaField = new JComboBox(areaCat);
@@ -60,11 +62,8 @@ public class UpperLeftPanel extends JPanel {
         getInfo.setForeground(new Color(233, 63, 51));
         getInfo.setFont(lableFont);
         category = new JComboBox(categories);
-//        category.setEditable(true);
+        category.setEditable(true);
     }
-
-
-
 
     private void setLable() {
         setBasicItem();
@@ -152,7 +151,9 @@ public class UpperLeftPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame memeFrame = new JFrame();
-                JLabel memeLable = new JLabel(new ImageIcon("/Users/apple/IdeaProjects/hackathon/meme.jpg"));
+                String fn = userDirectory + "/meme.jpg";
+                System.out.println(fn);
+                JLabel memeLable = new JLabel(new ImageIcon(fn));
                 memeFrame.add(memeLable);
                 memeFrame.setSize(1000,520);
                 memeFrame.setVisible(true);

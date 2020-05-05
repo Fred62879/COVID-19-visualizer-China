@@ -40,8 +40,4 @@ public class DetailEvent extends EventObject {
         res[1] = "NorthEast:" + overallResult.collectRegionalData("NorthEast",ss,days);
         return res;
     }
-
-    public void getItemList(){
-        //stub
-    }
 }
